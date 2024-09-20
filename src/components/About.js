@@ -29,6 +29,8 @@ export default function About() {
   useEffect(() => {
     AOS.init({ duration: 2000 });
 
+    const refValue = aboutRef.current; // Store current value of aboutRef
+
     // Create an Intersection Observer
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -37,14 +39,14 @@ export default function About() {
       { threshold: 0.1 } // Trigger when 10% of the element is in view
     );
 
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current); // Observe the About section
+    if (refValue) {
+      observer.observe(refValue); // Observe the stored ref value
     }
 
     // Cleanup the observer when the component is unmounted
     return () => {
-      if (aboutRef.current) {
-        observer.unobserve(aboutRef.current);
+      if (refValue) {
+        observer.unobserve(refValue); // Cleanup using the stored ref value
       }
     };
   }, []);
@@ -71,9 +73,13 @@ export default function About() {
                     "I am a creative thinker with a passion for software development, blending the quiet focus of chess with the strategic flair of pool. I thrive on the deep rhythms of jazz, the smooth beats of deep house, and the storytelling of hip hop, all while enjoying moments of connection with family and friends. My love for wall art reflects my appreciation for bold expressions and intricate details, just like in coding. A balance of introversion and extroversion keeps me grounded, whether I'm diving deep into code or sharing moments with those around me. Currently, I’m on a full-stack learnership, constantly expanding my skills and evolving in the dynamic world of tech.",
                     3000, // Wait 3 seconds after typing the paragraph
                   ]}
-                  speed={{ type: 'keyStrokeDelayInMs', value: 50 }} // Typing speed (30ms per keystroke)
+                  speed={{ type: "keyStrokeDelayInMs", value: 50 }} // Typing speed (50ms per keystroke)
                   omitDeletionAnimation={true} // Remove the deletion animation
-                  style={{ fontSize: '1em', display: 'block', minHeight: '200px' }} // Custom styling
+                  style={{
+                    fontSize: "1em",
+                    display: "block",
+                    minHeight: "200px",
+                  }} // Custom styling
                   repeat={1} // Run only once while in view
                   className="text-justify"
                 />
@@ -102,7 +108,10 @@ export default function About() {
                 className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
                 data-aos="zoom-in"
               >
-                <BriefcaseIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
+                <BriefcaseIcon
+                  className="h-5 w-5 mx-auto"
+                  aria-hidden="true"
+                />
                 <h2 className="text-2xl text-center font-bold tracking-tight">
                   Full Stack Developer Intern
                 </h2>
@@ -121,7 +130,10 @@ export default function About() {
                 className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
                 data-aos="zoom-in"
               >
-                <AcademicCapIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
+                <AcademicCapIcon
+                  className="h-5 w-5 mx-auto"
+                  aria-hidden="true"
+                />
                 <h2 className="text-2xl text-center font-bold tracking-tight">
                   Software Development
                 </h2>

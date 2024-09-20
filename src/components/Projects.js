@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import nglearn from "../nglearn.png";
-import furnishup from "../furnishup.png"
+import furnishup from "../furnishup.png";
+import irenew from "../irenew.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -17,8 +18,7 @@ const projects = [
     id: 2,
     name: "IRenew",
     href: "https://github.com/tebohonthako/iRenew-store",
-    imageSrc:
-      "https://fastly.picsum.photos/id/3/5000/3333.jpg?hmac=GDjZ2uNWE3V59PkdDaOzTOuV3tPWWxJSf4fNcxu4S2g",
+    imageSrc: irenew,
     used: "Angular Typescript, Bootstrap CSS, Java Spring Boot",
     description: "An online shopping website for refurbished Apple product.",
   },

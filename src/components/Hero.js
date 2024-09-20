@@ -21,7 +21,7 @@ const navigation = [
 
 export default function Hero() {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
   );
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -42,9 +42,11 @@ export default function Hero() {
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
         >
-          <div className="flex lg:flex-1">
-            <p className="-m-1.5 p-1.5 font-semibold">WS Mahlangu</p>
-          </div>
+          <p className="-m-1.5 p-1.5 font-semibold">
+            <span className="font-bold italic line-through">WS MAHLANGU</span>
+          </p>
+
+
           <div className="flex lg:hidden">
             <button
               type="button"

@@ -10,12 +10,15 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@testing-library/user-event": "^14.5.2",
+    "@twistezo/react-text-scramble": "^1.0.6",
     "aos": "^2.3.4",
+    "emailjs-com": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
     "react-type-animation": "^3.2.0",
+    "use-scramble": "^2.2.15",
     "web-vitals": "^3.5.2"
   },
   "scripts": {

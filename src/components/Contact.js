@@ -1,23 +1,65 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "", 
+    message: "",
+  });
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .send(
+        "service_afv9l1k", // EmailJS service ID
+        "template_sa418jr", // EmailJS template ID
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          message: formData.message,
+        },
+        "Iu-RHx9xVdULC2xfn" //EmailJS user ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send message, please try again.");
+        }
+      );
+  };
+
   return (
     <div className="py-24 sm:py-32" id="contact">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7">Get in touch</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Contact Me
           </p>
         </div>
+
         <form
-          action=""
-          method="POST"
+          onSubmit={handleSubmit}
           className="mx-auto mt-16 max-w-xl sm:mt-20"
           data-aos="zoom-in"
         >
@@ -33,9 +75,10 @@ export default function Contact() {
                 <input
                   type="text"
                   required
-                  name="first-name"
+                  name="firstName"
                   id="first-name"
-                  autoComplete="given-name"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
                 />
               </div>
@@ -51,9 +94,10 @@ export default function Contact() {
                 <input
                   type="text"
                   required
-                  name="last-name"
+                  name="lastName"
                   id="last-name"
-                  autoComplete="family-name"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
                 />
               </div>
@@ -71,7 +115,8 @@ export default function Contact() {
                   required
                   name="email"
                   id="email"
-                  autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
                 />
               </div>
@@ -89,8 +134,9 @@ export default function Contact() {
                   required
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
-                  defaultValue={""}
                 />
               </div>
             </div>
@@ -105,3 +151,5 @@ export default function Contact() {
     </div>
   );
 }
+
+

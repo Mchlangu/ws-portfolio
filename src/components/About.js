@@ -1,6 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { MapPinIcon, AtSymbolIcon } from "@heroicons/react/20/solid";
+import {
+  MapPinIcon,
+  AtSymbolIcon,
+  AcademicCapIcon,
+  BriefcaseIcon,
+} from "@heroicons/react/20/solid";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -97,6 +102,7 @@ export default function About() {
                 className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
                 data-aos="zoom-in"
               >
+                 <BriefcaseIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
                 <h2 className="text-2xl text-center font-bold tracking-tight">
                   Full Stack Developer Intern
                 </h2>
@@ -115,6 +121,7 @@ export default function About() {
                 className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
                 data-aos="zoom-in"
               >
+                <AcademicCapIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
                 <h2 className="text-2xl text-center font-bold tracking-tight">
                   Software Development
                 </h2>

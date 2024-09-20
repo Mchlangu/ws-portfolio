@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
-import pfp from "../avatar.png";
+import pfp from "../toon.png";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -143,7 +143,7 @@ export default function Hero() {
             <div className="grid justify-center items-center">
               <img
                 src={pfp}
-                alt="Sohom Mondal"
+                alt="WS Mahlangu"
                 className="w-72 rounded-full drop-shadow-2xl"
               />
             </div>
@@ -171,13 +171,7 @@ export default function Hero() {
                     repeat={Infinity}
                   />
                 </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nulla venenatis quis nibh ut laoreet. Sed imperdiet leo nec
-                    ex dapibus mollis.
-                  </p>
-                </div>
+  
                 <div className="mt-10 flex items-center justify-center gap-x-4">
                   <button className="btn btn-outline btn-square">
                     <a href="https://linkedin.com/in/wsmahlangu" target="_blank" rel="noopener noreferrer">

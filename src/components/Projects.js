@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
+import nglearn from "../nglearn.png";
+import furnishup from "../furnishup.png"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const projects = [
   {
     id: 1,
-    name: "FurnishUp",
-    href: "#",
-    imageSrc:
-      "https://fastly.picsum.photos/id/23/3887/4899.jpg?hmac=2fo1Y0AgEkeL2juaEBqKPbnEKm_5Mp0M2nuaVERE6eE",
-    used: "Angular Typescript, Bootstrap CSS",
-    description: "An online shopping website for refurbished furniture",
+    name: "Ng Learn",
+    href: "https://github.com/Mchlangu/angular-lms",
+    imageSrc: nglearn,
+    used: "Angular Typescript, TailwindCSS",
+    description: "An online learning management system. Allow users to consume content and take quiz",
   },
   {
     id: 2,
     name: "IRenew",
-    href: "#",
+    href: "https://github.com/tebohonthako/iRenew-store",
     imageSrc:
       "https://fastly.picsum.photos/id/3/5000/3333.jpg?hmac=GDjZ2uNWE3V59PkdDaOzTOuV3tPWWxJSf4fNcxu4S2g",
     used: "Angular Typescript, Bootstrap CSS, Java Spring Boot",
@@ -23,35 +24,17 @@ const projects = [
   },
   {
     id: 3,
-    name: "Project 3",
-    href: "#",
-    imageSrc:
-      "https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=4dXthm-NBqZdQwL-EYEBmXUtmhfjoNUBPbLkA64InGI",
-    used: "React.js, TailwindCSS",
+    name: "Furnish Up",
+    href: "https://github.com/nonkazi/FurnishUp",
+    imageSrc: furnishup,
+    used: "Angular, Bootstrap, Java",
     description: "A SaaS platform.",
-  },
-  {
-    id: 4,
-    name: "Project 4",
-    href: "#",
-    imageSrc:
-      "https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=saVlbujm3PXuVZrxzNq3vY7HsXsUeQ27U8ZTSgWzZl0",
-    used: "Vue.js, Firebase",
-    description: "A progressive web app for task management.",
-  },
-  {
-    id: 5,
-    name: "Project 5",
-    href: "#",
-    imageSrc:
-      "https://fastly.picsum.photos/id/30/4917/3279.jpg?hmac=DO5Q8-Yx2THCbYJmx6dmHOyn_qmXAfqC79Y_4CGVwZs",
-    used: "Next.js, TailwindCSS",
-    description: "A personal portfolio website.",
   },
 ];
 
 export default function Projects() {
   const [visibleProjects, setVisibleProjects] = useState(2); // Default to 2 initially
+  const [showAll, setShowAll] = useState(false); // To toggle between "View More" and "View Less"
 
   useEffect(() => {
     AOS.init({ duration: 2000 });
@@ -75,8 +58,15 @@ export default function Projects() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleViewMore = () => {
-    setVisibleProjects((prev) => prev + 2); // Show 2 more projects 
+  const handleToggleProjects = () => {
+    if (showAll) {
+      // Show fewer projects (2 or 4 based on screen size)
+      setVisibleProjects(window.innerWidth >= 1024 ? 4 : 2);
+    } else {
+      // Show all projects
+      setVisibleProjects(projects.length);
+    }
+    setShowAll(!showAll); // Toggle between showing all and fewer projects
   };
 
   return (
@@ -115,16 +105,14 @@ export default function Projects() {
             </div>
           ))}
         </div>
-        {visibleProjects < projects.length && ( // Only show the button if there are more projects to display
-          <div className="mt-16 flex justify-center">
-            <button
-              className="btn btn-outline"
-              onClick={handleViewMore}
-            >
-              View More
-            </button>
-          </div>
-        )}
+        <div className="mt-16 flex justify-center">
+          <button
+            className="btn btn-outline"
+            onClick={handleToggleProjects}
+          >
+            {showAll ? "View Less" : "View More"}
+          </button>
+        </div>
       </div>
     </div>
   );

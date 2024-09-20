@@ -24,7 +24,7 @@ const features = [
 
 export default function About() {
   const [isInView, setIsInView] = useState(false); // Track if the component is in view
-  const aboutRef = useRef(null); // Reference to the About section
+  const aboutRef = useRef(null);
 
   useEffect(() => {
     AOS.init({ duration: 2000 });
@@ -59,7 +59,6 @@ export default function About() {
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-lg leading-7">Get to know more</h2>
               <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
                 About Me
               </p>
@@ -69,13 +68,14 @@ export default function About() {
                 <TypeAnimation
                   splitter={(str) => str.split(/(?= )/)} // Split the text by words
                   sequence={[
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lobortis nisi, consequat semper lacus tempor sit amet. Sed elit orci, pretium sed velit sit amet, venenatis pretium magna. Nam pharetra dictum urna, non vestibulum mauris vulputate ut. Sed eros nisi, dapibus vitae consequat non, mollis et tortor. Maecenas bibendum nunc eu cursus maximus. Fusce ultricies ornare neque, vel varius libero euismod eget. Nulla sodales blandit lacus, id maximus quam interdum in. Morbi eu velit ut mi semper sollicitudin finibus aliquam nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut accumsan faucibus urna vel placerat. Donec euismod dui enim, tincidunt suscipit mauris lacinia vel. Fusce eget risus eget leo euismod porta. Aliquam dapibus sapien vitae eros pulvinar, in auctor ligula porta. Nam ac porttitor risus, nec blandit nulla. Nam erat erat, venenatis quis scelerisque nec, rhoncus id mi. Suspendisse molestie nibh purus, quis semper tellus pulvinar eget.',
+                    "I am a creative thinker with a passion for software development, blending the quiet focus of chess with the strategic flair of pool. I thrive on the deep rhythms of jazz, the smooth beats of deep house, and the storytelling of hip hop, all while enjoying moments of connection with family and friends. My love for wall art reflects my appreciation for bold expressions and intricate details, just like in coding. A balance of introversion and extroversion keeps me grounded, whether I'm diving deep into code or sharing moments with those around me. Currently, I’m on a full-stack learnership, constantly expanding my skills and evolving in the dynamic world of tech.",
                     3000, // Wait 3 seconds after typing the paragraph
                   ]}
                   speed={{ type: 'keyStrokeDelayInMs', value: 50 }} // Typing speed (30ms per keystroke)
                   omitDeletionAnimation={true} // Remove the deletion animation
                   style={{ fontSize: '1em', display: 'block', minHeight: '200px' }} // Custom styling
                   repeat={1} // Run only once while in view
+                  className="text-justify"
                 />
               )}
             </div>
@@ -102,7 +102,7 @@ export default function About() {
                 className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
                 data-aos="zoom-in"
               >
-                 <BriefcaseIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
+                <BriefcaseIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
                 <h2 className="text-2xl text-center font-bold tracking-tight">
                   Full Stack Developer Intern
                 </h2>
@@ -126,13 +126,10 @@ export default function About() {
                   Software Development
                 </h2>
                 <p className="mt-3 list-item list-inside">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Learned database design principles, system analysis and design
                 </p>
                 <p className="mt-3 list-item list-inside">
-                  Vestibulum vitae augue sit amet ex laoreet euismod sed eu dui.
-                </p>
-                <p className="mt-3 list-item list-inside">
-                  Fusce et leo nec elit mollis sollicitudin.
+                  Practiced using Oracle PL/SQL, C++ (Object Oriented Programming)
                 </p>
               </div>
             </div>

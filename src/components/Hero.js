@@ -43,7 +43,7 @@ export default function Hero() {
           aria-label="Global"
         >
           <p className="-m-1.5 p-1.5 font-semibold">
-            <span className="font-bold italic line-through">WS MAHLANGU</span>
+            <span className="p-5 font-bold italic line-through">WS MAHLANGU</span>
           </p>
 
 
